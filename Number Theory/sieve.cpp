@@ -6,6 +6,29 @@ const ll MAX = 2e5 + 7;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e13;
 
+int mod_pow(int a, int b)
+{
+    
+    if (b <= 0)
+        return 1;
+        
+    int ans = 1;
+    a %= MOD;
+    while (b)
+    {
+        if (b & 1)
+            ans = ans * a % MOD;
+        a = a * a % MOD;
+        b >>= 1;
+    }
+    return ans;
+}
+
+int mod_inv(int x)
+{
+    return mod_pow(x, MOD - 2);
+}
+
 int main()
 {
     ios::sync_with_stdio(false);

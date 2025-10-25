@@ -29,38 +29,6 @@ int custom_ciel_log(int a, int b)
     return out;
 }
 
-vector<int> unique_vector(vector<int> v)
-{
-    sort(v.begin(), v.end());
-    v.resize(unique(v.begin(), v.end()) - v.begin());
-
-    return v;
-}
-
-int mod_pow(int a, int b)
-{
-    
-    if (b <= 0)
-        return 1;
-        
-    int ans = 1;
-    a %= MOD;
-    while (b)
-    {
-        if (b & 1)
-            ans = ans * a % MOD;
-        a = a * a % MOD;
-        b >>= 1;
-    }
-    return ans;
-}
-
-int mod_inv(int x)
-{
-    return mod_pow(x, MOD - 2);
-}
-
-
 int floor_sqrt(int &n)
 {
     int x = sqrt(n) + 4;
@@ -69,12 +37,7 @@ int floor_sqrt(int &n)
     return x;
 }
 
-string bin(int a)
-{
-    return bitset<64>(a).to_string().substr(64 - __lg(a) - 1);
-}
-
-double C(int n, int k)
+double C_double(ll n, ll k)
 {
     if (k > n || k < 0)
         return 0.0;
