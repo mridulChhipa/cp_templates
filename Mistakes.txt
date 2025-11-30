@@ -1,1 +1,11 @@
-If i use global variables with fixed sized arrays, i many times don't look at new constraints as i move to another problem.
+If i use global variables with fixed sized arrays, i many times don't look at 
+new constraints as i move to another problem.
+In a for loop the condition of stopping is not static rather the condition is evaluated 
+every time.
+    example: 
+    for (i = 0; i < accumulate(a, a + n, 0LL); i++) {
+        ...
+    }
+    here the time complexity will not be O(sum(a)) rather it will be O(sum(a) * n)
+    because after every time the sum of n numbers is calculated
+    
