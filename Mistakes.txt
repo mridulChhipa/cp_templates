@@ -1,0 +1,1 @@
+If i use global variables with fixed sized arrays, i many times don't look at new constraints as i move to another problem.
