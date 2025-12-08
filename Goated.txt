@@ -5,3 +5,4 @@ https://codeforces.com/contest/920/problem/E : https://codeforces.com/contest/92
 https://codeforces.com/contest/1833/problem/E : https://codeforces.com/contest/1833/submission/351302556
 https://cses.fi/problemset/task/3294 : https://cses.fi/paste/2e13fde8bf6563beeb9db5/
 https://usaco.org/index.php?page=viewproblem2&cpid=1304 : https://usaco.guide/problems/usaco-1304/user-solutions
+https://usaco.org/index.php?page=viewproblem2&cpid=968 : https://usaco.guide/problems/usaco-968/user-solutions

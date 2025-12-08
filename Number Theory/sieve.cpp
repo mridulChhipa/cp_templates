@@ -6,12 +6,10 @@ const ll MAX = 2e5 + 7;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e13;
 
-int mod_pow(int a, int b)
+int mod_pow(ll a, ll b)
 {
-    
     if (b <= 0)
         return 1;
-        
     int ans = 1;
     a %= MOD;
     while (b)
@@ -24,7 +22,7 @@ int mod_pow(int a, int b)
     return ans;
 }
 
-int mod_inv(int x)
+int mod_inv(ll x)
 {
     return mod_pow(x, MOD - 2);
 }
@@ -48,7 +46,7 @@ int main()
             {
                 sieve[j] = false;
                 hpf[j] = i;
-                
+
                 if (spf[j] == 0)
                     spf[j] = i;
             }
