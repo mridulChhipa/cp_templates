@@ -6,15 +6,15 @@ const ll MAX = 2e5 + 7;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e13;
 
-int mod_pow(ll a, ll b)
+ll mod_pow(ll a, ll b)
 {
     if (b <= 0)
         return 1;
-    int ans = 1;
+    ll ans = 1;
     a %= MOD;
     while (b)
     {
-        if (b & 1)
+        if (b & 1LL)
             ans = ans * a % MOD;
         a = a * a % MOD;
         b >>= 1;

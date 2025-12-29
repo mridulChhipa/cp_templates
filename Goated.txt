@@ -7,3 +7,5 @@ https://cses.fi/problemset/task/3294 : https://cses.fi/paste/2e13fde8bf6563beeb9
 https://usaco.org/index.php?page=viewproblem2&cpid=1304 : https://usaco.guide/problems/usaco-1304/user-solutions
 https://usaco.org/index.php?page=viewproblem2&cpid=968 : https://usaco.guide/problems/usaco-968/user-solutions
 https://atcoder.jp/contests/abc203/tasks/abc203_d?lang=en 
+https://www.spoj.com/problems/LCMSUM/
+https://www.spoj.com/problems/GCDEX/
