@@ -82,3 +82,37 @@ if ((p_mod - 1 + MOD) % MOD == 0) {
 **The Fix:** * Use `__int128_t` for intermediate multiplications.
 
 * Ensure constants like `1e18` are typed as `1LL << 60` or similar to avoid precision issues with `double`.
+
+---
+
+## 5. Space Optimization for 2D DP Arrays
+
+**The Problem:** When solving dynamic programming problems, you might create a 2D array where computing row `i` only requires values from row `i-1`. This uses O(n × m) space even though you only need O(m) space at any time.
+
+**The Optimization:** Instead of maintaining the entire 2D array, use two 1D arrays: `curr` (current row) and `next` (previous row). Swap them after each iteration.
+
+**Example:**
+
+```cpp
+// Instead of this (O(n × m) space):
+vector<vector<int>> dp(n, vector<int>(m));
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+        dp[i][j] = /* computation using dp[i-1][...] */;
+    }
+}
+
+// Use this (O(m) space):
+vector<int> curr(m), next(m);
+for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+        curr[j] = /* computation using next[...] */;
+    }
+    swap(curr, next);  // Move current row to next for the next iteration
+}
+```
+
+**Key Points:**
+* Only works when row `i` depends solely on row `i-1`
+* Reduces space complexity from O(n × m) to O(m)
+* Common in problems like: Edit Distance, Longest Common Subsequence, Grid Path problems
