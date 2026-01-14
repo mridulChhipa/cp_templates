@@ -116,3 +116,65 @@ for (int i = 0; i < n; i++) {
 * Only works when row `i` depends solely on row `i-1`
 * Reduces space complexity from O(n × m) to O(m)
 * Common in problems like: Edit Distance, Longest Common Subsequence, Grid Path problems
+
+---
+
+## 6. Stack Memory Limits for Local Arrays
+
+**The Problem:** Declaring large arrays inside functions (local/stack arrays) can cause **Stack Overflow (SIGSEGV)** even if the array size seems reasonable. The stack has limited memory, typically **1-8 MB** by default.
+
+**Stack Size Limits:**
+* **Default stack size:** ~1 MB on most systems
+* **Safe local array size:** Approximately **10^6 integers** (4 MB) or **250,000 long longs** (2 MB)
+* Arrays larger than **10^7 elements** will almost certainly crash
+
+**Example of the Problem:**
+
+```cpp
+void solve() {
+    int arr[10000000];  // 40 MB - STACK OVERFLOW!
+    // ... your code ...
+}
+```
+
+**The Fix:**
+
+**Option 1: Use Global/Static Arrays** (allocated in data segment, not stack)
+```cpp
+int arr[10000000];  // Global - safe, stored in data segment
+
+void solve() {
+    // Use arr here
+}
+```
+
+**Option 2: Use Dynamic Allocation** (allocated on heap)
+```cpp
+void solve() {
+    vector<int> arr(10000000);  // Heap allocation - safe
+    // OR
+    int* arr = new int[10000000];  // Manual heap allocation
+}
+```
+
+**Option 3: Increase Stack Size** (compile-time flag)
+```bash
+# For GCC/G++
+g++ -Wl,--stack,268435456 solution.cpp  # Sets stack to 256 MB
+
+# Or use compiler pragma (Windows/MinGW)
+#pragma GCC optimize("O2")
+#pragma GCC optimize("stack-protector")
+```
+
+**Memory Allocation Comparison:**
+| Location | Size Limit | Declaration | Lifetime |
+|----------|------------|-------------|----------|
+| **Stack** | ~1-8 MB | Local variables in functions | Function scope |
+| **Heap** | ~Available RAM | `new`, `malloc`, `vector` | Until freed/deleted |
+| **Data Segment** | ~Available RAM | Global/static variables | Program lifetime |
+
+**Best Practice:**
+* Use **global arrays** for competitive programming (simple & fast)
+* Use **vectors** when size is dynamic or for cleaner code
+* **Never** declare large local arrays (> 10^6 elements) without good reason
