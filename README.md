@@ -1,5 +1,21 @@
 # Competitive Programming: Common Mistakes & Pitfalls
 
+## Repository Structure
+
+- `starters/`: starter templates for contest platforms (Codeforces, USACO).
+- `utils/`: handy helper functions and utility snippets.
+- `notes/`: miscellaneous notes and text files.
+- `search/binary_search/`: binary search examples and related problems.
+- `bit_manipulation/`: bit tricks and examples.
+- `divide_and_conquer/`: divide & conquer algorithms and examples.
+- `dynamic_programming/`: DP problems and CSES subfolder.
+- `graphs/`: graph algorithms and subfolders (trees, segment trees).
+- `math/`: combinatorics and number theory utilities.
+- `misc/`: miscellaneous problems and utilities.
+- `range_queries/`: segment-tree / fenwick examples.
+- `sorting/`: sorting examples and related code.
+- `strings/`: string algorithms (KMP, utils).
+
 ## 1. Static Global Arrays vs. New Constraints
 
 **The Problem:** Using fixed-sized global arrays (e.g., `MAX = 2e5 + 7`) and forgetting to update them when moving to a new problem with larger constraints (e.g., ). This leads to **Runtime Errors (SIGSEGV)** or **Wrong Answers** due to buffer overflows.
