@@ -6,6 +6,26 @@ const ll MAX = 2e5 + 7;
 const ll MOD = 1e9 + 7;
 const ll INF = 1e13;
 
+// Sometimes this mod_pow functions would be required depending on the problem constraints like for larger or smaller exponents, or if the modulus is not prime. So, I have included both versions of mod_pow functions here for reference and use as needed.
+ll mod(ll x, ll m)
+{
+  return x < m ? x : (x % m) + m;
+}
+ 
+ll mod_pow(ll a, ll b, ll m)
+{
+  ll res = 1;
+  a = mod(a, m);
+  while (b > 0)
+  {
+    if (b & 1)
+      res = mod(res * a, m);
+    a = mod(a * a, m);
+    b >>= 1;
+  }
+  return res;
+}
+
 ll mod_pow(ll a, ll b)
 {
     if (b <= 0)

@@ -13,11 +13,11 @@ ll range_xor(int l, int r)
         if (n < 0)
             return 0LL;
         if (n % 4 == 0)
-            return n;
+            return n * 1LL;
         else if (n % 4 == 1)
             return 1LL;
         else if (n % 4 == 2)
-            return n + 1;
+            return n + 1LL;
         return 0LL;
     };
 
