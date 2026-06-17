@@ -7,10 +7,21 @@ private:
     int rows, cols;
     std::vector<std::vector<ll>> mat;
     ll MOD;
+
 public:
     Matrix(int r, int c, ll mod) : rows(r), cols(c), MOD(mod)
     {
         mat.resize(r, std::vector<ll>(c, 0));
+    }
+
+    std::vector<ll> &operator[](int i)
+    {
+        return mat[i];
+    }
+
+    const std::vector<ll> &operator[](int i) const
+    {
+        return mat[i];
     }
 
     Matrix operator*(const Matrix &other) const
